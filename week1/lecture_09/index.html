@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h1 onclick="this.innerHTML=`This is aftetr click!`">My Page Title</h1>
+        <h1 onclick="changeText(this)">My Page Title</h1>
+        <p>Nice cation goes here</p>
+        <article class="first_article">
+            <h2>List of amazing fruits</h2>
+            <p>Must eat fruits</p>
+
+            <div class="wrapper-list">
+                <ul class="apple-list">
+                    <li class="apple">Apples</li>
+                    <li class="orange">Oranges</li>
+                    <li class="avacado">Avacados</li>
+                    <li class="grape">Grapes
+                        <ul>
+                            <li class="type-1">Moon drops</li>
+                            <li>Sultana</li>
+                            <li>Concord</li>
+                            <li>Crimson Seedless</li>
+                        </ul>
+                    </li>
+                    <li class="banana">Bananas</li>
+                </ul>
+                <button class="btn-1">Real full list</button>
+            </div>
+
+        </article>
+        <article class="second-article">
+            <h2>Amazing olaces in kenya</h2>
+            <p>Must visit places in kenya</p>
+            <div class="wrapper-2">
+                <ul class="places-list">
+                    <li>Maasai Mara</li>
+                    <li>Diani Beech</li>
+                    <li>Watamu Beech</li>
+                    <li>Amboseli nation park</li>
+                    <li>Lake Nakuru</li>
+                </ul>
+                <button class="btn-2">Read full list</button>
+            </div>
+            <div>
+                <button onclick="displayDate()">The time is:</button>
+                <p id="demo"></p>
+            </div>
+        </article>
+        <input type="text" id="firstname" onchange="upperCase()" />
+        <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+            style="background-color: aqua; width :120px; height:70px ; font-size: 20px;">Move Over Me</div>
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+            style="background-color: aqua; width :120px; height:70px ; font-size: 20px;">Click Me</div>
+    </main>
+
+
+    <script>
+        function changeText(id) {
+            id.innerHTML = `This is after click`;
+        }
+
+        function displayData() {
+            document.getElementById("demo").innerHTML = new Date();
+        }
+
+        function upperCase() {
+            const x = document.getElementById("firstname");
+            x.value = x.value.toUpperCase();
+        }
+        function mOver(id) {
+            id.innerHTML = "Thanku";
+        }
+        function mOut(id) {
+            id.innerHTML = "Mouse Over Me";
+        }
+
+        function mDown(id){
+            id.style.backgroundColor="green";
+            id.innerHTML="release";
+        }
+
+        function mUp(id){
+            id.style.backgroundColor="red";
+            id.innerHTML="Thanku Click Me";
+        }
+
+    </script>
+</body>
+
+</html>
