@@ -17,3 +17,7 @@ code {
 .center{
   text-align: center;
 }
+
+.screen{
+  padding:5vh 10%;
+}
