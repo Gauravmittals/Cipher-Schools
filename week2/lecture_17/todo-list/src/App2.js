@@ -9,16 +9,16 @@
 // 5. In react a component can be represented by a JS class or a JS function.
 
 
-import {Component} from "react"
-class App extends Component{
-  name="Cipher School"
-  render(){
-    return(
-      <div>
-        <h1>This is {this.name}</h1>
-      </div>
-    )
-  }
-}
+// import {Component} from "react"
+// class App extends Component{
+//   name="Cipher School"
+//   render(){
+//     return(
+//       <div>
+//         <h1>This is {this.name}</h1>
+//       </div>
+//     )
+//   }
+// }
 
-export default App;
+// export default App;
