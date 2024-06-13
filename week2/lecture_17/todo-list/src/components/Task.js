@@ -1,5 +1,29 @@
-const Task=()=>{
-    return <h6>Taks</h6>
+import { formatDate } from "../utils/DateUtil";
+const Task = ({task:{title,Description,createdDate}}) => {
+
+
+    return (
+        <div className="card">
+            <div className="content">
+
+                <div className="header">
+                    {title}
+                </div>
+                <div className="meta">
+                {formatDate(createdDate)}
+                </div>
+                <div className="description">
+                {Description}
+                </div>
+            </div>
+            <div className="extra content">
+                <div className="ui two buttons">
+                    <div className="ui basic green button">Edit</div>
+                    <div className="ui basic red button">Delete</div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Task;

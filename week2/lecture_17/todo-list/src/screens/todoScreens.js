@@ -42,6 +42,7 @@ const TodoScreen = () => {
                     {
                         title: "Go to Gym",
                         Description: "Good for muscle Grouth",
+                        createdDate:new Date(),
                     },
                     ]);
                     console.log(`Add Task Button was Clicked ${taskList.length}`);
@@ -49,7 +50,13 @@ const TodoScreen = () => {
                     Add Task
                 </button>
             </div>
-            {taskList.map((task) => <Task></Task> )}
+            <section>
+            <div class="ui cards">
+                {taskList.map((task,index) => <Task task={task} key={index}/> )}
+            </div>
+            
+            </section>
+            
            
         </div>
 
