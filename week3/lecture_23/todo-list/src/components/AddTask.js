@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const AddTask = () => {
+
+const AddTask = ({onSubmit}) => {
 
     const [task,setTask]= useState({
         title:"",
@@ -15,6 +16,7 @@ const AddTask = () => {
     let onFormSumbit=(e)=>{
         e.preventDefault();
         console.log(task);
+        onSubmit(task);
     }
     return (
         <>
@@ -24,11 +26,11 @@ const AddTask = () => {
             <form onSubmit={onFormSumbit}>
              <div className="field">
                 <label>title</label>
-                <input type="text" spellCheck={false}  name=" title" data-ms-editor={true} placeholder="Task Title" onChange={handleInputChange}  />
+                <input type="text" spellCheck={false}  name="title" data-ms-editor={true} placeholder="Task Title" value={task.title}  onChange={handleInputChange}  />
             </div>
             <div className="field">
                 <label>Description</label>
-                <textarea placeholder="Task Description" spellCheck={false} data-ms-editor={true} name="Description" onChange={handleInputChange}></textarea>
+                <textarea placeholder="Task Description" spellCheck={false} data-ms-editor={true} name="Description" value={task.Description} onChange={handleInputChange}></textarea>
             </div>
            
             <button className="ui primary button" type="submit">

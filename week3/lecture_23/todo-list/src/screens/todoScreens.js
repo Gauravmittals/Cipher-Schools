@@ -62,7 +62,7 @@ const TodoScreen = () => {
             
             </section>
             
-            <AddTask/>
+            <AddTask onSubmit={addNewTask}  />
         </div>
         
         </>
