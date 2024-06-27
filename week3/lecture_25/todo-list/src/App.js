@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 ]);
 const App = () => {
 
-  return (
+  return ( 
     <TaskProvider>
       <RouterProvider router={router} />
     </TaskProvider>);

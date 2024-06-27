@@ -17,14 +17,14 @@ const TodoScreen = () => {
             <h1 className="ui heading center">To DO List</h1>
             <div>
                 <button onClick={(e) => {
-                    navigate("/add-task");
+                    navigate("/AddTask");
                 }} className="ui secondary button">
                     Add Task
                 </button>
             </div>
             <section>
             <div className="ui cards">
-                {taskList.map((task,index) => <Task task={task} key={index}/> )}
+                {taskList.map((task) => <Task task={task} key={task.taskID}/> )}
             </div>
             
             </section>
