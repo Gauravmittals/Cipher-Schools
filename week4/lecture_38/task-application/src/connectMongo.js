@@ -1,5 +1,5 @@
 const {connect}= require("mongoose");
-const MONGO_URL="mongodb://localhost:27017/";
+const MONGO_URL="mongodb+srv://gauravmittals100:roota@cluster0.fjhhp1z.mongodb.net";
 
 const DB_NAME=`cipherschool`;
 
