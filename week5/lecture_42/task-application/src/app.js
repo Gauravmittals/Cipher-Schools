@@ -1,9 +1,10 @@
 require("./connectMongo");
 const express = require("express");
 const task = require("./models/Task");
-
+const userRouter=require("./routes/user-routers");
 const app = express();
 app.use(express.json());
+app.use("/user",userRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello World");
