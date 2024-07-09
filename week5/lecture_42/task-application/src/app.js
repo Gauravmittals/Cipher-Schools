@@ -2,6 +2,7 @@ require("./connectMongo");
 const express = require("express");
 const task = require("./models/Task");
 const userRouter=require("./routes/user-routers");
+const authMiddleware = require("./middleware/auth-middleware");
 const app = express();
 app.use(express.json());
 app.use("/user",userRouter);
@@ -24,7 +25,7 @@ app.post("/add-task", async (req, res) => {
 
 });
 
-app.get("/get-tasks", async (req, res) => {
+app.get("/get-tasks",authMiddleware, async (req, res) => {
     const taskList = await task.find();
     return res.status(200).send(taskList);
 });
