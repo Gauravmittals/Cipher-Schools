@@ -1,7 +1,7 @@
 const { model, Schema } = require("mongoose");
 const { isEmail } = require("validator");
 const { encryptPassword, checkPassword } = require("../bcrypt");
-
+const { generateToken } = require("../jwt");
 
 const UserSchema = new Schema({
     name: { type: String, required: true, trim: true },
@@ -53,7 +53,7 @@ UserSchema.statics.findByEmailAndPasswordForAuth = async (email, password) => {
         if (!user) {
             throw new Error("No user with that email");
         }
-        const isMatch = checkPassword(password,user.password);
+        const isMatch = await checkPassword(password, user.password); // Await for the promise to resolve
         if (!isMatch) {
             throw new Error("Incorrect password");
         }
@@ -65,13 +65,19 @@ UserSchema.statics.findByEmailAndPasswordForAuth = async (email, password) => {
     }
 };
 
-UserSchema.pre("save",async function(next){
-    const user=this;
-    if(user.modifiedPaths().includes("password")){
-      user.password=await encryptPassword(user.password);
+UserSchema.pre("save", async function(next) {
+    const user = this;
+    if (user.modifiedPaths().includes("password")) {
+        user.password = await encryptPassword(user.password);
     }
-next();
+    next();
 });
+
+UserSchema.methods.generateToken = function() {
+    const user = this;
+    const token = generateToken({ _id: user._id.toString() }); // Ensure the token uses _id
+    return token;
+};
 
 const User = model("User", UserSchema);
 
